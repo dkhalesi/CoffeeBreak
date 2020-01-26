@@ -17,6 +17,7 @@
 
       <label for="Department">Select Your Department</label>
       <select  class="departments" required>
+        <option></option>
       <option>Management</option>
       <option>Finance</option>
       <option>Sales & Marketing</option>
@@ -24,9 +25,17 @@
       <option>Engineering</option>
     </select>
 
-    <button type="submit" class="btn">Sign In</button>
+    <button type="submit" class="btn" onclick="myFunction()">Sign In</button>
+
     </form>
   </div>
-
+  <video id="videoBG" autoplay muted loop>
+    <source src="hackathon-background.mp4" type="video/mp4">
+    </video>
+  <script>
+  function myFunction(){
+    window.location="secondPage.html";
+  }
+  </script>
   </body>
   </html>
