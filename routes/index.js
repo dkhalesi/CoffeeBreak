@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 
+var mysql = require('mysql');
+
 var bodyParser = require('body-parser');
 router.use( bodyParser.json() );       // to support JSON-encoded bodies
 router.use(bodyParser.urlencoded({     // to support URL-encoded bodies
@@ -14,17 +16,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/contact', function(req, res, next){
-  // if((req.body.EmployeeIds).isInteger && req.body.departments !== ""){
-
-  // }
-  console.log('!!');
-});
-
-module.exports = router;
-
-var mysql = require('mysql');
-
-function createRow(){
   var connection = mysql.createConnection({
     host: 'localhost',
     user: 'dkhales',
@@ -34,30 +25,56 @@ function createRow(){
     connection.connect(function(err) {
       if (err) throw err;
       console.log("Connected!");
-      var sql = "INSERT INTO coffeebreak (jobID, time, field) VALUES ('23212','5:30:00','marketing')";
+      var sql = "INSERT INTO coffeebreak (jobID, field, start, end) VALUES ('"+req.body.EmployeeIds+"', '"+req.body.department+"', '"+req.body.startTime+"', '"+req.body.endTime+"')";
       connection.query(sql, function (err, result) {
         if (err) throw err;
         console.log("1 record inserted");
       });
     });
-}
-
-  function deleteRow(){
+  
     var connection = mysql.createConnection({
       host: 'localhost',
       user: 'dkhales',
       password: 'nicolasmacbeth',
       database: 'conu'
     });
-    connection.connect(function(err) {  
-      if (err) throw err;  
-      var sql = "DELETE FROM coffeebreak WHERE jobID = '23212'";  
-      connection.query(sql, function (err, result) {  
-      if (err) throw err;  
-      console.log("Number of records deleted: " + result.affectedRows);  
-      });  
+    connection.connect(function(err) {
+      if (err) throw err;
+      connection.query("SELECT * FROM coffeeBreak WHERE start = '"+req.body.startTime+"'", function (err, result) {
+        if (err) throw err;
+        console.log(result);
+
+        if(result){
+          var connection = mysql.createConnection({
+            host: 'localhost',
+            user: 'dkhales',
+            password: 'nicolasmacbeth',
+            database: 'conu'
+          });
+          connection.connect(function(err) {  
+            if (err) throw err;  
+            var sql = "DELETE FROM coffeebreak WHERE jobID = '"+req.body.EmployeeIds+"'";  
+            connection.query(sql, function (err, result) {  
+            if (err) throw err;  
+            console.log("Number of records deleted: " + result.affectedRows);  
+            });  
+          });
+          res.sendFile(path.resolve('./public/secondPage.html'));
+
+        }else{
+          
+
+
+        }
+      });
+
     });
-  }
+  
+});
+
+module.exports = router;
+
+
 
 
 
