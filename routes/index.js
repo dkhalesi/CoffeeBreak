@@ -38,8 +38,9 @@ router.post('/contact', function(req, res, next){
             database: 'conu'
           });
           connection.connect(function(err) {  
-            if (err) throw err;  
-            var sql = "DELETE FROM coffeebreak WHERE start = '"+req.body.startTime+"'";  
+            if (err) throw err;
+            console.log('555555555555555555555', result);  
+            var sql = "DELETE FROM coffeeBreak WHERE `jobID` = '"+result[0].jobID+"'";  
             connection.query(sql, function (err, result) {  
             if (err) throw err;  
             console.log("Number of records deleted: " + result.affectedRows);  
