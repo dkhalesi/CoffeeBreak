@@ -52,9 +52,10 @@ input, select{
   display: block;
   width: 320px;
   height: 50px;
+  background-color: transparent;
   background: rgba(0,0,0,0.05);
   outline: none;
-  color:#fff;
+ 
   border: 1px solid rgba(0, 0, 0, 0.4);
   font-family: Source Sans Pro;
   font-weight:lighter;
@@ -63,6 +64,9 @@ input, select{
   padding-left: 10px;
   border-radius: 5px;
 
+}
+select option{
+  background-color: transparent;
 }
 label{
   color:#fff;
