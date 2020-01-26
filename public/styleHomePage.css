@@ -1,86 +1,82 @@
 html{
-margin:0;
-padding:0;
-width: 100%;
-height:100vh;
+  margin:0;
+  padding:0;
+  width: 100%;
+  height:100vh;
 }
 body{
-margin:0;
-padding: 0;
-width: 100%;
-height: 100vh;
-background-color: #B3907B;
-display: table;
+  margin:0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+background-clip: cover;
+  background-size: cover;
+  display: table;
 }
+#videoBG{
+  position:fixed;
+  z-index: -1;
 
 
 
-
-
-.timer{
-position:absolute;
-transform: translate(-50%,-50%);
-width: 320;
-height: 425px;
-background: rgba(0,0,0,0.05);
-border: 1px solid rgba(255, 255, 255, 0.3);
-border-radius: 5px;
-padding: 0.5em;
-top: 50%;
-left:50%;
+}
+.signin{
+  position:absolute;
+  transform: translate(-50%,-50%);
+  width: 320;
+  height: 620px;
+  background: rgba(0,0,0,0.05);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  padding: 0.5em;
+  top: 50%;
+  left:50%;
 
 }
 .logo{
 
 
-width: 195px;
-height: 195px;
+  width: 250px;
+  height: 150px;
 
 
 }
 h2{
-font-family: Source Sans Pro;
-font-weight: lighter;
-color: #fff;
-font-size:50px;
-text-align: center;
-}
-h1{
-font-family: Source Sans Pro;
-font-weight: lighter;
-color: #fff;
-font-size:20px;
-text-align: center;
+  font-family: Source Sans Pro;
+  font-weight: lighter;
+  color: #fff;
+  font-size:50px;
+  text-align: center;
 }
 input, select{
-display: block;
-width: 320px;
-height: 50px;
-background: rgba(0,0,0,0.05);
-outline: none;
-color:#fff;
-border: 1px solid rgba(0, 0, 0, 0.4);
-font-family: Source Sans Pro;
-font-weight:lighter;
-font-size: 18px;
-margin-bottom: 10px;
-padding-left: 10px;
-border-radius: 5px;
+  display: block;
+  width: 320px;
+  height: 50px;
+  background: rgba(0,0,0,0.05);
+  outline: none;
+  color:#fff;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  font-family: Source Sans Pro;
+  font-weight:lighter;
+  font-size: 18px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  border-radius: 5px;
 
 }
 label{
-color:#fff;
-font-size: 20px;
+  color:#fff;
+  font-size: 20px;
 }
 
 .btn{
-width: 332px;
-height: 50px;
-font-size: 16px;
-background: #000;
-font-weight: lighter;
-font-size: 20px;
-color: #fff;
-border: 0px;
-border-radius: 5px;
+  width: 332px;
+  height: 50px;
+  font-size: 16px;
+  background: #000;
+  font-weight: lighter;
+  font-size: 20px;
+  color: #fff;
+  border: 0px;
+  border-radius: 5px;
 }
