@@ -1,9 +1,39 @@
 <!DOCTYPE html>
-<html  lang="en">
-<head>
-  </head>
-  <<body>
-    <h1>hello</h1>
-    </body>
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.2.620/styles/kendo.bootstrap-v4.min.css">
+        <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+        <script src="https://kendo.cdn.telerik.com/2018.2.620/js/kendo.all.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="styleSecondPage.css">
+        <link href="jquery.datetimepicker.min.css" rel="stylesheet"/>
+    </head>
+    <body>
+      <div class="timer" >
 
-  </html>
+        <form id="contact-form" method="POST" action="/contact">
+          <h2> Coffee Time</h2>
+          <label for="startTime"> Start Time:</label>
+          <input id="timePicker">
+          <script>
+            $(document).ready(function(){
+              $('#timePicker').kendoTimePicker();
+            });
+          </script>
+
+          <label for="endTime"> End Time:</label>
+          <input id="timePicker">
+          <script>
+            $(document).ready(function(){
+              $('#timePicker').kendoTimePicker();
+            });
+          </script>
+
+
+
+        <button type="submit" class="btn" onclick="myFunction()">Validate</button>
+
+        </form>
+      </div>
+    </body>
+</html>

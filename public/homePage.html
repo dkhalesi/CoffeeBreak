@@ -3,6 +3,9 @@
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.2.620/styles/kendo.bootstrap-v4.min.css">
+<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2018.2.620/js/kendo.all.min.js"></script>
 <link rel="stylesheet" type="text/css" href="styleHomePage.css">
 </head>
 <body>
@@ -17,13 +20,22 @@
 
       <label for="Department">Department Name:</label>
       <select name="department" class="departments" required>
-        <option value = "">Select Your Department</option>  
+        <option value = "">Select Your Department</option>
         <option value = "Management">Management</option>
         <option value = "Finance">Finance</option>
         <option value = "Sales & Marketing">Sales & Marketing</option>
         <option value = "Human Resources">Human Resources</option>
         <option value = "Engineering">Engineering</option>
       </select>
+      <label for="startTime"> Start Time:</label>
+      <input type="time" id="appt" name="startTime"
+       min="09:00" max="18:00" required>
+
+<label for="startTime"> End Time:</label>
+<input type="time" id="appt" name="startTime"
+ min="09:00" max="18:00" required>
+
+
 
     <button type="submit" class="btn" onclick="myFunction()">Pair Me!</button>
 

@@ -24,11 +24,11 @@ background-clip: cover;
   position:absolute;
   transform: translate(-50%,-50%);
   width: 320;
-  height: 460px;
+  height: 625px;
   background: rgba(0,0,0,0.05);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 5px;
-  padding: 3em;
+  padding: 2em;
   top: 50%;
   left:50%;
 
