@@ -16,21 +16,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/contact', function(req, res, next){
-  var connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'dkhales',
-    password: 'nicolasmacbeth',
-    database: 'conu'
-  });
-    connection.connect(function(err) {
-      if (err) throw err;
-      console.log("Connected!");
-      var sql = "INSERT INTO coffeebreak (jobID, field, start, end) VALUES ('"+req.body.EmployeeIds+"', '"+req.body.department+"', '"+req.body.startTime+"', '"+req.body.endTime+"')";
-      connection.query(sql, function (err, result) {
-        if (err) throw err;
-        console.log("1 record inserted");
-      });
-    });
+
   
     var connection = mysql.createConnection({
       host: 'localhost',
@@ -42,9 +28,9 @@ router.post('/contact', function(req, res, next){
       if (err) throw err;
       connection.query("SELECT * FROM coffeeBreak WHERE start = '"+req.body.startTime+"'", function (err, result) {
         if (err) throw err;
-        console.log(result);
-
-        if(result){
+        console.log('!!!!', result.length !== 0);
+        console.log(result !== []);
+        if(result.length !== 0){
           var connection = mysql.createConnection({
             host: 'localhost',
             user: 'dkhales',
@@ -53,18 +39,32 @@ router.post('/contact', function(req, res, next){
           });
           connection.connect(function(err) {  
             if (err) throw err;  
-            var sql = "DELETE FROM coffeebreak WHERE jobID = '"+req.body.EmployeeIds+"'";  
+            var sql = "DELETE FROM coffeebreak WHERE start = '"+req.body.startTime+"'";  
             connection.query(sql, function (err, result) {  
             if (err) throw err;  
             console.log("Number of records deleted: " + result.affectedRows);  
             });  
           });
-          res.sendFile(path.resolve('./public/secondPage.html'));
+          res.sendFile(path.resolve('./public/thirdPage.html'));
 
         }else{
-          
-
-
+          var connection = mysql.createConnection({
+            host: 'localhost',
+            user: 'dkhales',
+            password: 'nicolasmacbeth',
+            database: 'conu'
+          });
+            connection.connect(function(err) {
+              if (err) throw err;
+              console.log("Connected!");
+              var sql = "INSERT INTO coffeebreak (jobID, field, start) VALUES ('"+req.body.EmployeeIds+"', '"+req.body.department+"', '"+req.body.startTime+"')";
+              connection.query(sql, function (err, result) {
+                if (err) throw err;
+                console.log("1 record inserted");
+              });
+            });
+            console.log('HEELO')
+          res.sendFile(path.resolve('./public/secondPage.html'));
         }
       });
 
